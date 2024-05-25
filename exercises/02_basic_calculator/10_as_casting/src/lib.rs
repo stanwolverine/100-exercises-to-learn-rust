@@ -6,7 +6,7 @@ mod tests {
 
     #[test]
     fn u16_to_u32() {
-        let v: u32 = todo!();
+        let v: u32 = 47;
         assert_eq!(47u16 as u32, v);
     }
 
@@ -24,14 +24,21 @@ mod tests {
         // You could solve this by using exactly the same expression as above,
         // but that would defeat the purpose of the exercise. Instead, use a genuine
         // `i8` value that is equivalent to `255` when converted from `u8`.
-        let y: i8 = todo!();
+        //
+        // logic: when casting to signed integer, "two's complement representation" method is used for casting
+        // It works as follows:
+        // 1. convert 255 into bits --> `11111111`
+        // 2. treat most significant bit as sign (+/-), "1" means "-" and "0" means "+" --> negative sign
+        // 3. invert all bits and add 1 bit --> `11111111` becomes `00000000` + 1 --> `00000001` --> 1
+        // 4. Result --> negative 1 --> -1
+        let y: i8 = -1;
 
         assert_eq!(x, y);
     }
 
     #[test]
     fn bool_to_u8() {
-        let v: u8 = todo!();
+        let v: u8 = 1;
         assert_eq!(true as u8, v);
     }
 }
