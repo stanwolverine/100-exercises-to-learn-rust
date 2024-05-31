@@ -30,10 +30,28 @@ pub mod ticket {
             }
         }
 
-        // TODO: Add three public methods to the `Ticket` struct:
-        //  - `title` that returns the `title` field.
-        //  - `description` that returns the `description` field.
-        //  - `status` that returns the `status` field.
+        pub fn title(&self) -> &String {
+            &self.title
+        }
+
+        pub fn description(&self) -> &String {
+            &self.description
+        }
+
+        pub fn status(&self) -> &String {
+            &self.status
+        }
+        // pub fn title(self) -> String {
+        //     self.title
+        // }
+
+        // pub fn description(self) -> String {
+        //     self.description
+        // }
+
+        // pub fn status(self) -> String {
+        //     self.status
+        // }
     }
 }
 
@@ -44,6 +62,7 @@ mod tests {
     #[test]
     fn description() {
         let ticket = Ticket::new("A title".into(), "A description".into(), "To-Do".into());
+        assert_eq!(ticket.title(), "A title");
         assert_eq!(ticket.description(), "A description");
     }
 
@@ -51,6 +70,7 @@ mod tests {
     fn title() {
         let ticket = Ticket::new("A title".into(), "A description".into(), "To-Do".into());
         assert_eq!(ticket.title(), "A title");
+        assert_eq!(ticket.status(), "To-Do");
     }
 
     #[test]
